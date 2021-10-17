@@ -3,7 +3,7 @@ import {useStyletron} from 'baseui'
 import {BEHAVIOR, Cell, Grid} from 'baseui/layout-grid'
 import {FaTwitter} from 'react-icons/fa'
 import {FaInstagram} from 'react-icons/fa'
-import {FaGithub} from 'react-icons/fa'
+import {FaDiscord} from 'react-icons/fa'
 import {LabelSmall} from 'baseui/typography'
 
 function Footer ({size}) {
@@ -35,6 +35,19 @@ function Footer ({size}) {
             },
           }}
         >
+        </Cell>
+        <Cell
+          span={6}
+          overrides={{
+            Cell: {
+              style: {
+                display: 'flex !important',
+                flexDirection: 'column',
+                alignItems: size.width <= 1136 ? 'center' : 'flex-end',
+              },
+            },
+          }}
+        >
           <LabelSmall className={css({color: theme.colors.contentPrimary})}>
             {process.env.NEXT_PUBLIC_COPYRIGHT_TEXT}
           </LabelSmall>
@@ -55,40 +68,14 @@ function Footer ({size}) {
                 color={theme.colors.contentPrimary}
               />
             </a>}
-            { process.env.NEXT_PUBLIC_GITHUB && process.env.NEXT_PUBLIC_GITHUB != "" &&
-              <a href={`${process.env.NEXT_PUBLIC_GITHUB}`} target='_blank'>
-              <FaGithub
+            { process.env.NEXT_PUBLIC_DISCORD && process.env.NEXT_PUBLIC_DISCORD != "" &&
+              <a href={`${process.env.NEXT_PUBLIC_DISCORD}`} target='_blank'>
+              <FaDiscord
                 style={{width: 30, height: 30, marginLeft: 10}}
                 color={theme.colors.contentPrimary}
               />
             </a>}
           </div>
-        </Cell>
-        <Cell
-          span={6}
-          overrides={{
-            Cell: {
-              style: {
-                display: 'flex !important',
-                flexDirection: 'column',
-                alignItems: size.width <= 1136 ? 'center' : 'flex-end',
-              },
-            },
-          }}
-        >
-          <LabelSmall className={css({color: theme.colors.contentPrimary})}>
-            Created with OpenSea whitelable template
-          </LabelSmall>
-          <div style={{marginTop: 10}} />
-          <a
-            href='https://github.com/nawangwe/opensea-whitelabel-website-template'
-            target='_blank'
-          >
-            <FaGithub
-              style={{width: 30, height: 30}}
-              color={theme.colors.contentPrimary}
-            />
-          </a>
         </Cell>
       </Grid>
     </div>
